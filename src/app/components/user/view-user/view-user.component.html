@@ -1,0 +1,43 @@
+<p>view-user works!</p>
+<h1 class="container">Listado de Usuarios</h1><br>
+<table class="table table-striped">
+<!--     <caption> Listado de Usuarios </caption> -->
+    <thead>
+        <tr>
+            <th>Usuario Id</th>
+            <th>Fecha de registro</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Cursos Comprados</th>
+            <th>Cursos Dictados</th>
+            <th>#</th>
+            <th>#</th>  
+        </tr>
+      
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of userList">
+            <td>{{user.id}}</td>
+            <td>{{user.fechaRegistro}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let curso of user.cursosComprados">{{curso}}
+
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li *ngFor="let curso of user.cursosDictados">{{curso}}
+
+                    </li>
+                </ul>
+            </td>
+        
+        </tr>
+    </tbody>
+</table>

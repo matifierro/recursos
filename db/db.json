@@ -1,0 +1,85 @@
+{
+  "cursos": [
+    {
+      "id": "1",
+      "date": "19/11/2024",
+      "name": "Pizza",
+      "category": "Gastronomia",
+      "description": "variedades de pizza",
+      "price": 12663,
+      "image": "/img/pizza.jpg",
+      "url": "WidvoXBsDbI&t=7s",
+      "online": true
+    },
+    {
+      "id": "2",
+      "date": "20/11/2024",
+      "name": "Guitarra",
+      "category": "musica",
+      "description": "3 horas a fondo",
+      "price": 54887878,
+      "image": "/img/guitarra.jpg",
+      "url": "PqN-rlV6Tp4&t=47s",
+      "online": true
+    },
+    {
+      "id": "3",
+      "date": "21/11/2024",
+      "name": "Angular",
+      "category": "Programacion",
+      "description": "De cero a experto en 15 minutos",
+      "price": 5488448,
+      "image": "/img/Angular.jpg",
+      "url": "aiaKyhiY9TQ",
+      "online": true
+    }
+  ],
+  "users": [
+    {
+      "fechaRegistro": "20/10/2024",
+      "type": "ADMIN",
+      "id": "0",
+      "firstName": "adminName",
+      "lastName": "adminLastName",
+      "email": "admin@admin.com",
+      "password": "123",
+      "cursosComprados": [],
+      "cursosDictados": []
+    },
+    {
+      "id": "1",
+      "fechaRegistro": "2024-11-11T17:01:02.718Z",
+      "type": "USER",
+      "firstName": "marta",
+      "lastName": "gomez",
+      "cursosComprados": [
+        1
+      ],
+      "cursosDictados": [
+        3
+      ],
+      "email": "marta@gomez.com",
+      "password": "mdq2024"
+    },
+    {
+      "id": "5",
+      "fechaRegistro": "11/11/2024",
+      "type": "USER",
+      "firstName": "irme",
+      "lastName": "gutierrez",
+      "cursosComprados": [],
+      "cursosDictados": [],
+      "email": "irma@gmail.com",
+      "password": "984irjj"
+    }
+  ],
+  "creditCards": [
+    {
+      "nombre_titular": "lio messi",
+      "number": 4338545654322345,
+      "expiracion": "11/27",
+      "codigo_seguridad": 314,
+      "id": "24f3"
+    }
+  ]
+}

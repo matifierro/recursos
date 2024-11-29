@@ -1,0 +1,95 @@
+
+
+  <main class="py-5">
+    <section class="mb-5">
+      <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()"class="credit-card-form">
+        <div class="credit-card-container">
+          <h3 class="mb-3 text">Pago con Tarjeta</h3>
+          <div class="bg-light p-4">
+            <div class="column">
+              <div class="col-lg-12">
+                <label>Nombre del titular</label>
+                <input
+                  type="text"
+                  name = "name"
+                  formControlName="nombre_titular"
+                  class="form-control form-control-ml"
+                  placeholder="lio messi"
+                  required value=""
+                />
+              </div>
+              
+              <div class="row" *ngIf="creditCardForm.get('nombre_titular')?.invalid && (creditCardForm.get('nombre_titular')?.dirty || creditCardForm.get('nombre_titular')?.touched)"
+              >
+                <small class="alert text-danger">
+                  El campo es obligatorio.
+                </small>
+              </div>
+  
+              <div class="col-lg-12">
+                <label>Número de tarjeta</label>
+                <input
+                  type="number"
+                  formControlName="numero"
+                  class="form-control form-control-ml"
+                  placeholder="4338545654322345"
+                />
+              </div>
+              <div
+                class="row"
+                *ngIf="creditCardForm.get('numero')?.invalid && (creditCardForm.get('numero')?.dirty || creditCardForm.get('numero')?.touched)"
+              >
+                <small class="alert text-danger">
+                  El campo es obligatorio.
+                </small>
+              </div>
+  
+              <div class="col-lg-12">
+                <label>Fecha de expiración</label>
+                <input
+                  type="text"
+                  formControlName="expiracion"
+                  class="form-control form-control-ml"
+                  placeholder="11/27"
+                />
+              </div>
+              <div
+                class="row"
+                *ngIf="creditCardForm.get('expiracion')?.invalid && (creditCardForm.get('expiracion')?.dirty || creditCardForm.get('expiracion')?.touched)"
+              >
+                <small class="alert text-danger">
+                  El campo es obligatorio.
+                </small>
+              </div>
+  
+              <div class="col-lg-12">
+                <label>Código de seguridad</label>
+                <input
+                  type="number"
+                  formControlName="codigo_seguridad"
+                  class="form-control form-control-ml"
+                  placeholder="314"
+                />
+              </div>
+              <div
+                class="row"
+                *ngIf="creditCardForm.get('codigo_seguridad')?.invalid && (creditCardForm.get('codigo_seguridad')?.dirty || creditCardForm.get('codigo_seguridad')?.touched)"
+              >
+                <small class="alert text-danger">
+                  El campo es obligatorio.
+                </small>
+              </div>
+            </div>
+  
+            <hr class="mb-4" />
+  
+            <div style="margin-top: 20px;">
+              <button type="submit" class="btn btn-primary" [disabled]="creditCardForm.invalid">
+                Comprar
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>

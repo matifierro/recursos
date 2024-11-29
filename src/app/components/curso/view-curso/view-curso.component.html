@@ -1,0 +1,33 @@
+
+
+<!-- <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let curso of cursosFiltrados">
+      <div class="card mb-3">
+
+       
+        <img [src]="curso.image" class="card-img-top" alt="{{ curso.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ curso.name }}</h5>
+          <p class="card-text">{{ curso.description }}</p>
+          <p class="card-text"><small class="text-muted">Categoría: {{ curso.category }}</small></p>
+          <p class="card-text"><strong>Precio:</strong> ${{ curso.price }}</p>
+          <p class="card-text"><small class="text-muted">Fecha: {{ curso.date }}</small></p>
+          <p class="card-text">
+          <a class="btn btn-primary" (click)="comprarCurso(curso.id)">Comprar Curso</a>
+            <!-- <span [class]="curso.online ? 'badge bg-success' : 'badge bg-secondary'">
+              {{ curso.online ? 'Online' : 'Presencial' }}
+            </span> -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

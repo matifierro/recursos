@@ -1,0 +1,52 @@
+
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid d-flex flex-column align-items-center"> 
+   
+    <!-- Botón de toggle para dispositivos móviles -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Enlaces alineados a la derecha debajo del logo -->
+     <div class="collapse navbar-collapse w-100" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto flex-row justify-content-evenly w-100">
+        <li  class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/viewCurso">Home</a>
+        </li>
+        <li *ngIf="userType === 'USER'" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/listCurso">Mis Cursos</a>
+        </li>
+        
+        <li *ngIf="userType === 'USER'" class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/addCurso">Agregar nuevo curso</a>
+        </li>
+        <li  *ngIf="userType === 'ADMIN'"class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/listCurso">Cursos Pendientes</a>
+        </li>
+
+        
+       <!--  <li class="nav-item active">
+          <a class="nav-link active" routerLink="/add-user"> Mis Cursos</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/quienes-somos">¿Quienes somos?</a>
+        </li>
+       
+        
+        <li *ngIf="userType !=='ADMIN' && userType !== 'USER' "class="nav-item active">
+          <a class="nav-link active" routerLink="/login">Iniciar Sesion </a>
+         
+        </li>
+        <li *ngIf="userType ==='ADMIN' || userType === 'USER'" class="nav-item active">
+          <a class="nav-link active" routerLink="/logout">Cerrar Sesion</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ 
+
+ 

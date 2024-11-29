@@ -1,0 +1,72 @@
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  ul li img {
+    margin-right: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  ul li strong {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+  
+  ul li p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .container ul:first-of-type li {
+    background-color: #e8f5e9; /* Verde claro para cursos comprados */
+    border-color: #66bb6a;
+  }
+  
+  .container ul:nth-of-type(2) li {
+    background-color: #e3f2fd; /* Azul claro para cursos dictados */
+    border-color: #42a5f5;
+  }
+
+  .curso-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .curso-link:hover {
+    background-color: #f0f0f0; /* Fondo al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más notable */
+  }

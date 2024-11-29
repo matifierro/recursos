@@ -1,0 +1,92 @@
+
+
+
+<main class="py-5">
+    <section class="mb-5">
+         <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <h3 class="mb-3">Nuevo Usuario</h3>
+                <div class="bg-light p-15">
+                    <div class="col-lg-12">                                                                         
+                        <div class="col-lg-12">
+                            <label for="">Nombre </label>
+                            <input type="text" name="firstName" formControlName="firstName" class="form-control form-control-ml" required value="">
+                        </div>
+                       
+                        <div class="row" *ngIf="!userForm.get('firstName')?.valid && (userForm.get('firstName')?.dirty || userForm.get('firstName')?.touched)"
+                        class="col-lg-12">
+                            <div class="alert text-danger">
+                                    <small  *ngIf="userForm.get('firstName')?.errors?.['required']">
+                                    El campo es obligatorio
+                                    </small>
+                                    <small  *ngIf="userForm.get('firstName')?.errors?.['minlength']">
+                                    Debe tener minimo 3 caracteres
+                                    </small>
+                            </div>
+                        </div> 
+                      
+                      
+                        <div class="col-lg-12">
+                            <label for="">Apellido</label>
+                            <input type="text" name="lastName" formControlName="lastName" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        <div class="row" *ngIf="!userForm.get('lastName')?.valid && (userForm.get('lastName')?.dirty || userForm.get('lastName')?.touched)"
+                        class="col-lg-12">
+                            <div class="alert text-danger">
+                                    <small  *ngIf="userForm.get('lastName')?.errors?.['required']">
+                                    El campo es obligatorio
+                                    </small>
+                                
+                            </div>
+                        </div> 
+
+
+
+                        <div class="col-lg-12">
+                            <label for="">Email</label>
+                            <input type="text" name="email" formControlName="email" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        <div class="row" *ngIf="!userForm.get('email')?.valid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)"
+                        class="col-lg-12">
+                            <div>
+                                <small class="alert text-danger" *ngIf="userForm.get('email')?.errors?.['required']">
+                                    El campo es obligatorio
+                                </small>
+                                <small class="alert text text-danger" role="alert" *ngIf="userForm.get('email')?.errors?.['email']">
+                                    Formato de Email Invalido
+                                </small>
+
+                            </div>
+                              
+                        </div> 
+
+                        <div class="col-lg-12">
+                            <label for="">Contraseña</label>
+                            <input type="text" name="password" formControlName="password" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        
+                        <div class="row" *ngIf="!userForm.get('password')?.valid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)"
+                        class="col-lg-12">
+                            <div>
+                                <small class="alert text-danger" *ngIf="userForm.get('email')?.errors?.['required']">
+                                    El campo es obligatorio
+                                </small>
+                        
+
+                            </div>
+                              
+                        </div> 
+                        
+                    </div>
+
+                    <!-- {{ message }} -->
+                    <hr class="mb-4">
+                    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Guardar</button>                    
+                </div>
+            </div>
+         </form>
+    </section>
+</main>

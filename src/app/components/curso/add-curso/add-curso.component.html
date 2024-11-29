@@ -1,0 +1,141 @@
+
+
+<main class="py-5">
+    <section class="mb-5">
+         <form [formGroup]="cursoForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <h3 class="mb-3" style="text-align: center;">Cargar Curso</h3>
+                <div class="bg-light p-10">
+                    <div class="col-lg-20">                                                                         
+                        <div class="col-lg-15">
+                            <label for="">Nombre </label>
+                            
+                            <input type="text" name="name" formControlName="name" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        <div class="row" *ngIf="!cursoForm.get('name')?.valid && (cursoForm.get('name')?.dirty || cursoForm.get('name')?.touched)"
+                        class="col-lg-12">
+                            <div class="alert text-danger">
+                                    <small  *ngIf="cursoForm.get('name')?.errors?.['required']">
+                                    El curso debe tener un nombre
+                                    </small>
+                            </div>
+                        </div> 
+
+
+                        <div class="col-lg-15">
+                            <label for="">Descripcion</label>
+                            <input type="text" name="description" formControlName="description" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        <div class="row" *ngIf="!cursoForm.get('description')?.valid && (cursoForm.get('description')?.dirty || cursoForm.get('description')?.touched)"
+                        class="col-lg-12">
+                            <div class="alert text-danger">
+                                    <small  *ngIf="cursoForm.get('description')?.errors?.['required']">
+                                    Agrega una descripcion
+                                    </small>
+                            </div>
+                        </div> 
+
+                        <div class="col-lg-15">
+                            <label for="">Categoria</label>
+                            <input type="text" name="category" formControlName="category" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        <div class="row" *ngIf="!cursoForm.get('category')?.valid && (cursoForm.get('category')?.dirty || cursoForm.get('category')?.touched)"
+                        class="col-lg-12">
+                            <div class="alert text-danger">
+                                    <small  *ngIf="cursoForm.get('category')?.errors?.['required']">
+                                    Agrega una categoria
+                                    </small>
+                            </div>
+                        </div> 
+
+
+                        <div class="col-lg-15">
+                            <label for="">Precio</label>
+                            <input type="number" name="price" formControlName="price" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        <div class="row" *ngIf="!cursoForm.get('price')?.valid && (cursoForm.get('price')?.dirty || cursoForm.get('price')?.touched)"
+                        class="col-lg-12">
+                            <div class="alert text-danger">
+                                    <small  *ngIf="cursoForm.get('price')?.errors?.['required']">
+                                    El campo es obligatorio
+                                    </small>
+                                    <small  *ngIf="cursoForm.get('price')?.errors?.['pattern']">
+                                    Solo puedes ingresar valores numericos
+                                    </small>
+                            </div>
+                        </div> 
+
+
+
+                        <div class="col-lg-15">
+                            <label for="">Url</label>
+                            <input type="text" name="url" formControlName="url" class="form-control form-control-ml" required value="">
+                        </div>
+
+                        <div class="row" *ngIf="!cursoForm.get('url')?.valid && (cursoForm.get('url')?.dirty || cursoForm.get('url')?.touched)"
+                        class="col-lg-12">
+                            <div class="alert text-danger">
+                                    <small  *ngIf="cursoForm.get('url')?.errors?.['required']">
+                                    El campo es obligatorio
+                                    </small>
+    
+                            </div>
+                        </div> 
+
+
+
+                        <!-- <div class="col-lg-4">
+                            <label for="">Imagen</label>
+                            <input type="file" name="image" (change)="onImageSelected($event)" class="form-control form-control-ml" required value="">
+                            <button class="btn btn-outline-secondary" type="button" (click)="onImageSelected($event)">Cargar Imagen</button>
+                            <div *ngIf="cursoForm.get('image')?.invalid && (cursoForm.get('image')?.dirty || cursoForm.get('image')?.touched)">
+                                <small class="text-danger" *ngIf="cursoForm.get('imagen')?.errors?.['required']">Al menos una imagen es requerida.</small>
+                                <small class="text-danger" *ngIf="cursoForm.get('imagen')?.errors?.['pattern']">El formato valido es: jpg, jpeg, png</small>        
+                              </div>
+                        </div> -->
+
+                       <!--  <div class="col-lg-15 d-flex align-items-center gap-2"></div> -->
+
+                        <div class="col-lg-15  ">
+                            <!-- Etiqueta -->
+                            <label for="" class="form-label mb-10">Imagen</label>
+                          
+                            <!-- Input de archivo -->
+                            <input  type="file"  name="image"  (change)="onImageSelected($event)" 
+                              class="form-control" required />
+                          
+                            <!-- Botón -->
+                          <!--   <button 
+                              class="btn btn-outline-secondary" 
+                              type="button" 
+                              (click)="onImageSelected($event)">
+                              Cargar
+                            </button>
+                           -->
+                            <!-- Mensajes de validación -->
+                         </div> 
+
+                            <div *ngIf="cursoForm.get('image')?.invalid && (cursoForm.get('image')?.dirty || cursoForm.get('image')?.touched)">
+                              <small class="text-danger" *ngIf="cursoForm.get('image')?.errors?.['required']">Al menos una imagen es requerida.</small>
+                      <!--         <small class="text-danger" *ngIf="cursoForm.get('image')?.errors?.['pattern']">El formato válido es: jpg, jpeg, png</small> -->
+                            </div>
+                          
+
+
+
+
+
+
+                    </div>
+
+                    <hr class="mb-4">
+                    <button type="submit" class="btn btn-primary" [disabled]="!cursoForm.valid"> Agregar</button>                    
+                </div>
+            </div>
+         </form>
+    </section>
+</main>

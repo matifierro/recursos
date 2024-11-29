@@ -1,0 +1,45 @@
+
+
+
+  .credit-card-form {
+    width: 1000px; /* Ancho típico de una tarjeta de crédito ampliada */
+    height: 1000px; /* Altura menor para que sea más ancho que alto */
+    margin: 0px auto; /* Centramos el formulario */
+    
+}
+
+.credit-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-light {
+    border-radius: 16px; /* Bordes más redondeados para simular una tarjeta */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    padding: 20px;
+    background: linear-gradient(to right, #ffffff, #e9ecef); /* Fondo con ligero gradiente */
+}
+
+h3 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px; /* Separación inferior del título */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    font-weight: bold;
+    background-color: #007bff; /* Color azul */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin bordes */
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+}
+
