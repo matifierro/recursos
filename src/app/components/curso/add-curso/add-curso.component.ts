@@ -4,6 +4,7 @@ import { Curso } from '../../../models/curso';
 import { CursoService } from '../../../services/curso.service';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -80,9 +81,25 @@ export class AddCursoComponent implements OnInit{
           // Ahora vincular el curso con el usuario
           this.linkCursoWithUser(response.id); // Pasamos el ID del curso guardado
 
+          Swal.fire({
+            
+            text: 'Curso guardado con exito',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          })
+
           },
           error => {
             console.error('Error al guardar el curso:', error);
+
+            
+          Swal.fire({
+            
+            text: 'Error al guardar el curso',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
+
           }
     )}
     /* this.router.navigateByUrl("/listCurso"); */

@@ -4,6 +4,7 @@ import { CreditCardService } from '../../services/credit-card.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreditCard } from '../../models/creditCard';
 import { UserService } from '../../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-credit-card',
@@ -60,7 +61,14 @@ export class CreditCardComponent implements OnInit{
 
 
     if (this.creditCardForm.invalid) {
-      alert('Por favor completa todos los campos');
+      
+
+      Swal.fire({
+        
+        text: 'Por favor completa todos los campos',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      })
       return;
     }
   
@@ -87,7 +95,14 @@ export class CreditCardComponent implements OnInit{
         // 4. Si encontramos una tarjeta válida
         if (tarjetaValida) {
            
-          alert('Tarjeta válida! Procesando compra...');
+         
+
+          Swal.fire({
+            title: 'Tarjeta Valida!',
+            text: 'Procesando compra...',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          })
         
            // Obtener el id del usuario actual 
            const userId = sessionStorage.getItem('token'); // Asegúrate de almacenar esto al loguear
@@ -95,13 +110,27 @@ export class CreditCardComponent implements OnInit{
  
            if (!userId) {
              alert('Error: No estás autenticado. Por favor, inicia sesión.');
+
+             Swal.fire({
+              title: 'Error!',
+              text: 'No estas logueado. Por favor, inica sesion.',
+              icon: 'warning',
+              confirmButtonText: 'OK'
+            })
              this.router.navigate(['/viewCurso']); // Redirigir a la página de login
              return;
            }
  
            const userIdNumber = parseInt(userId, 10);
            if (isNaN(userIdNumber)) {
-            alert('Error: El ID de usuario no es válido.');
+           
+
+            Swal.fire({
+              title: 'Error!',
+              text: 'EL id de usuario es invalido',
+              icon: 'error',
+              confirmButtonText: 'OK'
+            })
             this.router.navigate(['/viewCurso']); // Redirigir a login
             return;
             }
@@ -113,7 +142,14 @@ export class CreditCardComponent implements OnInit{
   
                 // Verificar si el curso ya ha sido comprado
                 if (user.cursosComprados.includes(this.cursoId)) {
-                alert('Ya has comprado este curso.');
+
+                  Swal.fire({
+                    
+                    text: 'Ya compraste este curso',
+                    icon: 'warning',
+                    confirmButtonText: 'Cool'
+                  })
+               
                  return;
                  }
   
@@ -122,30 +158,63 @@ export class CreditCardComponent implements OnInit{
   
                 // Actualizar el usuario en json-server
                 this.userService.updateUser(user).subscribe(() => {
-                  alert('Compra realizada con éxito.');
+
+                  Swal.fire({
+                   
+                    text: 'Compra realizada con exito',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  })
+                 
                   
                   // Redirigir al componente del curso comprado
                   this.router.navigate(['/curso', this.cursoId]);
   
                 },
                 (error) => {
-                  alert('Error al actualizar el usuario: ' + error.message);
+                  Swal.fire({
+                   title: 'Error al actualizar el usuario',
+                    text: error.message ,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                  })
+                  
                 }
               
               );
               } else {
-                alert('Error: No se pudo encontrar el usuario.');
+
+                Swal.fire({
+                  
+                   text: 'Usuario no encontrado' ,
+                   icon: 'warning',
+                   confirmButtonText: 'OK'
+                 })
+                
+                
               }
             });
 
          
         } else {
-          alert('Tarjeta inválida. Por favor verifica los datos.');
+          
+          Swal.fire({
+            
+             text:'Tarjeta inválida. Por favor verifica los datos.' ,
+             icon: 'error',
+             confirmButtonText: 'OK'
+           })
         }
       },
       error: (error) => {
         console.error('Error:', error);
-        alert('Ocurrió un error al validar la tarjeta');
+        Swal.fire({
+            
+          text:'Ocurrió un error al validar la tarjeta' ,
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
+
       }
     });
   }

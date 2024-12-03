@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../models/user';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-user',
@@ -50,10 +51,22 @@ export class AddUserComponent  {
 
       this.userService.addUser(user).subscribe(
         response => {
-          console.log('usuario guardado:', response)
+          console.log('usuario guardado:', response);
+
+          Swal.fire({
+            text: 'Usuario creado con exito',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
+          this.router.navigateByUrl('login');
         },
         error => {
           console.error('Error al guardar el curso:', error);
+          Swal.fire({
+            text: 'Error al guardar el usuario',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
         }
       )} 
       else {

@@ -52,11 +52,11 @@
       "type": "USER",
       "firstName": "marta",
       "lastName": "gomez",
-      "cursosComprados": [
-        1
-      ],
-      "cursosDictados": [
-        3
+      "cursosComprados": [  
+         1
+     ],
+      "cursosDictados": [    
+        3   
       ],
       "email": "marta@gomez.com",
       "password": "mdq2024"

@@ -3,6 +3,7 @@ import { CursoService } from '../../../services/curso.service';
 import { Curso } from '../../../models/curso';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-curso',
@@ -27,7 +28,15 @@ export class ViewCursoComponent implements OnInit {
     const userId = Number(sessionStorage.getItem('token')); // Obtén el ID del usuario logueado
   
     if (!userId) {
-      alert('Por favor, inicia sesión para realizar una compra.');
+
+      
+      Swal.fire({
+        
+        text: 'Inicia sesión para comprar el curso',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      })
+      
       return;
     }
   
@@ -35,7 +44,15 @@ export class ViewCursoComponent implements OnInit {
       (user) => {
         // Verificamos si el curso está en los cursos dictados
         if (user.cursosDictados.includes(cursoId)) {
-          alert('No puedes comprar este curso porque ya lo dictas.');
+          
+
+          
+          Swal.fire({
+            
+            text: 'No puedes comprar un curso que tu dictas',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
         } else {
           // Continúa con el flujo de compra
           console.log("puedes comprar este curso")
@@ -45,7 +62,13 @@ export class ViewCursoComponent implements OnInit {
       },
       (error) => {
         console.error('Error al verificar los cursos dictados:', error);
-        alert('Ocurrió un error. Intenta de nuevo más tarde.');
+        
+        Swal.fire({
+          title: 'Error!',
+          text: 'Error al verificar los cursos dictados',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
       }
     );
   }

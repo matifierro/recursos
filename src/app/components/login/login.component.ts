@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../auth/auth.service';
 import { LoginCredentials } from '../../models/login-credentials';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -36,7 +37,14 @@ export class LoginComponent implements OnInit{
   onSubmit() {
   
   if (this.loginForm.invalid) {
-    alert('Por favor, complete todos los campos correctamente.');
+    
+
+    Swal.fire({
+      
+      text: 'Por favor, complete todos los campos correctamente.',
+      icon: 'warning',
+      confirmButtonText: 'OK'
+    })
     return;
   }
   
@@ -52,6 +60,12 @@ export class LoginComponent implements OnInit{
 
         
         let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/viewCurso';
+        Swal.fire({
+          
+          text: 'Usuario Logueado con exito',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        })
         
         this.router.navigateByUrl(redirect);
         
@@ -59,11 +73,25 @@ export class LoginComponent implements OnInit{
        
         
       }else {
-        alert('Usuario o contraseña incorrectos');
+       
+
+        Swal.fire({
+          title: 'Error!',
+          text: 'Usuario o contraseña incorrecta',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
+        
       }
     })
     .catch(error => {
-      alert("Usuario o contraseña invalida")
+      
+      Swal.fire({
+        title: 'Error!',
+        text: 'Usuario o contraseña incorrecta',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })
       console.log(error);
     }); }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-logout',
@@ -14,6 +15,12 @@ export class LogoutComponent implements OnInit{
   ngOnInit() {
     setTimeout(() => {
       this.authService.logout();
+      Swal.fire({
+       
+        text: 'Sesion Cerrada',
+        icon: 'success',
+        /* confirmButtonText: 'Cool' */
+      })
       this.router.navigateByUrl('/viewCurso');      
     }, 2000);      
   }
